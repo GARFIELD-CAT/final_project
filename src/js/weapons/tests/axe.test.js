@@ -1,6 +1,6 @@
 import { Axe } from "../Axe";
 
-describe("Staff class", () => {
+describe("Axe class", () => {
   let axe;
 
   beforeEach(() => {
