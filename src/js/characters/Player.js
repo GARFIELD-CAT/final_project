@@ -50,7 +50,7 @@ export class Player {
 
   moveRight(distance) {
     distance = Math.min(distance, this.speed);
-    this.position += Math.min(distance, this.speed);
+    this.position += distance;
     console.log(`${this.getPlayerInfo()} передвинулся вправо на ${distance}`);
   }
 

@@ -15,18 +15,12 @@ export class Warrior extends Player {
 
   takeDamage(damage) {
     if (this.life / this.initLife < 0.5 && this.getLuck() > 0.8) {
-      this.magic -= damage;
+      let magicDamage = Math.min(damage, this.magic);
 
-      if (this.magic < 0) {
-        this.life += this.magic;
-        this.magic = 0;
-      }
+      this.magic -= magicDamage;
+      super.takeDamage(damage - magicDamage);
     } else {
-      this.life -= damage;
-    }
-
-    if (this.life < 0) {
-      this.life = 0;
+      super.takeDamage(damage);
     }
   }
 }

@@ -16,14 +16,10 @@ export class Mage extends Player {
 
   takeDamage(damage) {
     if (this.magic / this.initMagic > 0.5) {
-      this.life -= damage / 2;
+      super.takeDamage(damage / 2);
       this.magic -= 12;
     } else {
-      this.life -= damage;
-    }
-
-    if (this.life < 0) {
-      this.life = 0;
+      super.takeDamage(damage);
     }
   }
 }
