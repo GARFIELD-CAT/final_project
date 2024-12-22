@@ -1,4 +1,4 @@
-import { Player } from "./Player";
+import { Player, firstWeapons } from "./Player";
 import { Staff } from "../weapons/Staff";
 
 export class Mage extends Player {
@@ -11,7 +11,7 @@ export class Mage extends Player {
     this.agility = 8;
     this.description = "Маг";
     this.weapon = new Staff();
-    this.weapons = this.weapons.splice(0, 0, new Staff());
+    this.weapons = [this.weapon, ...firstWeapons];
   }
 
   takeDamage(damage) {

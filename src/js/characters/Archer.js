@@ -1,4 +1,4 @@
-import { Player } from "./Player";
+import { Player, firstWeapons } from "./Player";
 import { Bow } from "../weapons/Bow";
 
 export class Archer extends Player {
@@ -10,7 +10,7 @@ export class Archer extends Player {
     this.agility = 10;
     this.description = "Лучник";
     this.weapon = new Bow();
-    this.weapons = this.weapons.splice(0, 0, new Bow());
+    this.weapons = [this.weapon, ...firstWeapons];
   }
 
   getDamage(distance) {

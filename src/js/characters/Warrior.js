@@ -1,4 +1,4 @@
-import { Player } from "./Player";
+import { Player, firstWeapons } from "./Player";
 import { Sword } from "../weapons/Sword";
 
 export class Warrior extends Player {
@@ -10,7 +10,7 @@ export class Warrior extends Player {
     this.attack = 10;
     this.description = "Воин";
     this.weapon = new Sword();
-    this.weapons.splice(0, 0, new Sword());
+    this.weapons = [this.weapon, ...firstWeapons];
   }
 
   takeDamage(damage) {

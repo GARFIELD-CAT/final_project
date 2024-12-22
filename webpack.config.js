@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -9,16 +10,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/, // Применять правила к файлам .js
-        exclude: /node_modules/, // Исключить папку node_modules
-        use: {
-          loader: "babel-loader", // Использовать Babel для транспиляции
-          options: {
-            presets: ["@babel/preset-env"], // Пресет для ES6+
-          },
-        },
-      },
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],

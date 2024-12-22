@@ -1,4 +1,5 @@
-import { Player } from "./Archer";
+import { firstWeapons } from "./Player";
+import { Archer } from "./Archer";
 import { LongBow } from "../weapons/LongBow";
 
 export class Crossbowman extends Archer {
@@ -10,6 +11,6 @@ export class Crossbowman extends Archer {
     this.luck = 15;
     this.description = "Арбалетчик";
     this.weapon = new LongBow();
-    this.weapons = this.weapons.splice(0, 0, new LongBow());
+    this.weapons = [this.weapon, ...firstWeapons];
   }
 }

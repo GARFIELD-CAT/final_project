@@ -1,4 +1,5 @@
-import { Player } from "./Mage";
+import { Mage } from "./Mage";
+import { firstWeapons } from "./Player";
 import { StormStaff } from "../weapons/StormStaff";
 
 export class Demourge extends Mage {
@@ -10,7 +11,7 @@ export class Demourge extends Mage {
     this.luck = 12;
     this.description = "Демиург";
     this.weapon = new StormStaff();
-    this.weapons = this.weapons.splice(0, 0, new StormStaff());
+    this.weapons = [this.weapon, ...firstWeapons];
   }
 
   getDamage(distance) {
@@ -19,7 +20,8 @@ export class Demourge extends Mage {
     }
 
     let luck = this.getLuck();
-    damage = ((this.attack + this.weapon.getDamage()) * luck) / distance;
+    let damage =
+      ((this.attack + this.weapon.getDamage()) * luck) / Math.max(distance, 1);
 
     if (luck > 0.6 && this.magic > 0) {
       damage *= 1.5;

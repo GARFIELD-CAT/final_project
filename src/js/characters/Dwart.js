@@ -1,4 +1,5 @@
 import { Warrior } from "./Warrior";
+import { firstWeapons } from "./Player";
 import { Axe } from "../weapons/Axe";
 
 export class Dwart extends Warrior {
@@ -9,7 +10,7 @@ export class Dwart extends Warrior {
     this.luck = 20;
     this.description = "Гном";
     this.weapon = new Axe();
-    this.weapons = this.weapons.splice(0, 0, new Axe());
+    this.weapons = [this.weapon, ...firstWeapons];
     this.damageCounter = 0;
   }
 

@@ -5,7 +5,7 @@ import airbnb from "eslint-config-airbnb-base";
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    ignores: ["dist/*", "webpack.config.js"],
+    ignores: ["dist/*", "webpack.config.js", "**/tests/*"],
   },
   {
     languageOptions: { globals: globals.browser },

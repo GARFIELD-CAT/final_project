@@ -1,19 +1,25 @@
-import { Archer } from "./characters/Archer";
-import { Warrior } from "./characters/Warrior";
-import { Mage } from "./characters/Mage";
-import { Dwart } from "./characters/Dwart";
-import { Crossbowman } from "./characters/Crossbowman";
-import { Demourge } from "./characters/Demourge";
+const winnerPosition = 0;
 
-export function play() {
-  const characters = [
-    new Archer(),
-    new Warrior(),
-    new Mage(),
-    new Dwart(),
-    new Crossbowman(),
-    new Demourge(),
-  ];
+export function play(players) {
+  console.log(
+    `Игра началась! Количество оставшихся игроков: ${players.length}`
+  );
+  let round = 1;
 
-  return characters;
+  while (players.length > 1) {
+    players.forEach((player) => {
+      console.log(`Раунд номер: ${round}`);
+      if (!player.isDead()) {
+        player.turn(players);
+      }
+
+      players = players.filter((player) => !player.isDead());
+      console.log(`Количество оставшихся игроков: ${players.length}`);
+    });
+
+    round += 1;
+  }
+
+  console.log(`Игра закончена!`);
+  return players[winnerPosition];
 }
