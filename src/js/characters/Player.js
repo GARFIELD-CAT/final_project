@@ -35,6 +35,9 @@ export class Player {
   }
 
   takeDamage(damage) {
+    console.log(
+      `${this.getPlayerInfo()} получил урон в размере ${damage} единиц.`
+    );
     this.life = Math.max(0, this.life - damage);
   }
 
@@ -94,9 +97,6 @@ export class Player {
     } else if (this.dodged()) {
       return;
     } else {
-      console.log(
-        `${this.getPlayerInfo()} получил урон в размере ${damage} единиц.`
-      );
       this.takeDamage(damage);
     }
   }
